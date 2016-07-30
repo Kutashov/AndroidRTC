@@ -4,15 +4,16 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import com.github.nkzawa.socketio.client.IO;
-import com.github.nkzawa.socketio.client.Socket;
-import com.github.nkzawa.emitter.Emitter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.opengl.EGLContext;
 import android.util.Log;
 import org.webrtc.*;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 
 public class WebRtcClient {
     private final static String TAG = WebRtcClient.class.getCanonicalName();

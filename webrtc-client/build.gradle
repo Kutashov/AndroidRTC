@@ -20,6 +20,8 @@ android {
 }
 
 dependencies {
-    compile 'com.github.nkzawa:socket.io-client:0.4.2'
+    compile ('io.socket:socket.io-client:0.7.0') {
+        exclude group: 'org.json', module: 'json'
+    }
     compile 'io.pristine:libjingle:9424@aar'
 }
