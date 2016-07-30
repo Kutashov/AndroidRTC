@@ -55,7 +55,8 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
                         | LayoutParams.FLAG_SHOW_WHEN_LOCKED
                         | LayoutParams.FLAG_TURN_SCREEN_ON);
         setContentView(R.layout.main);
-        mSocketAddress = "http://" + getResources().getString(R.string.host);
+        //mSocketAddress = "http://" + getResources().getString(R.string.host);
+        mSocketAddress = "http://192.168.0.102";
         mSocketAddress += (":" + getResources().getString(R.string.port) + "/");
 
         vsv = (GLSurfaceView) findViewById(R.id.glview_call);
@@ -173,7 +174,7 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
         VideoRendererGui.update(localRender,
                 LOCAL_X_CONNECTING, LOCAL_Y_CONNECTING,
                 LOCAL_WIDTH_CONNECTING, LOCAL_HEIGHT_CONNECTING,
-                scalingType);
+                scalingType, true);
     }
 
     @Override
@@ -181,11 +182,11 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
         remoteStream.videoTracks.get(0).addRenderer(new VideoRenderer(remoteRender));
         VideoRendererGui.update(remoteRender,
                 REMOTE_X, REMOTE_Y,
-                REMOTE_WIDTH, REMOTE_HEIGHT, scalingType);
+                REMOTE_WIDTH, REMOTE_HEIGHT, scalingType, true);
         VideoRendererGui.update(localRender,
                 LOCAL_X_CONNECTED, LOCAL_Y_CONNECTED,
                 LOCAL_WIDTH_CONNECTED, LOCAL_HEIGHT_CONNECTED,
-                scalingType);
+                scalingType, true);
     }
 
     @Override
@@ -193,6 +194,6 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
         VideoRendererGui.update(localRender,
                 LOCAL_X_CONNECTING, LOCAL_Y_CONNECTING,
                 LOCAL_WIDTH_CONNECTING, LOCAL_HEIGHT_CONNECTING,
-                scalingType);
+                scalingType, true);
     }
 }

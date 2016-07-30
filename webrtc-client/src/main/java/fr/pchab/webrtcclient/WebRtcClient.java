@@ -277,9 +277,13 @@ public class WebRtcClient {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        client.on("id", messageHandler.onId);
-        client.on("message", messageHandler.onMessage);
-        client.connect();
+        if (client != null) {
+            client.on("id", messageHandler.onId);
+            client.on("message", messageHandler.onMessage);
+            client.connect();
+        } else {
+            Log.d("WebRtcClient", "Socket not connected");
+        }
 
         iceServers.add(new PeerConnection.IceServer("stun:23.21.150.121"));
         iceServers.add(new PeerConnection.IceServer("stun:stun.l.google.com:19302"));
